@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SQLiteAppBase</string>
+    <string name="title_activity_main">SQLiteApp</string>
+</resources>
