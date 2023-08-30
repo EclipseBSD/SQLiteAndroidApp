@@ -6,21 +6,27 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sqlitebase.sqliteappbase.R
+import com.sqlitebase.sqliteappbase.databinding.ActivityMainBinding
 import com.sqlitebase.sqliteappbase.db.DatabaseManager
 import com.sqlitebase.sqliteappbase.model.PersonData
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
     val dbManager = DatabaseManager(this)
-    val person = PersonData(id = 1, name = "Vini", cpf = "405.281.842-23", age = 30)
+    private lateinit var binding: ActivityMainBinding
+    private val person = PersonData(id = 1, name = "Vini", cpf = "405.281.842-23", age = 30)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
         Toast.makeText(this,"Bem vindo ao aplicativo", Toast.LENGTH_SHORT).show()
         Log.i(TAG, "onCreate(): ")
 
-        Log.d("onCreate: ", "Creating person: $person")
+
     }
 
 }
